@@ -49,7 +49,7 @@ function encode_Uint8Array(data: ArrayBuffer): string
  * 参数 data - base64 数据
  * 返回值 ArrayBuffer - 原始数据
  */
-function decode_Uint8Array(data: string): ArrayBuffer
+function decode_Uint8Array(data: ArrayBuffer): ArrayBuffer
 
 /*
  * 将 string 类型数据转换为 base64。
@@ -66,6 +66,14 @@ function encode_String(data: string): string
  * 返回值 string - 原始数据
  */
 function decode_string(data: string): string
+
+/*
+ * 将 base64 数据转换为 ArrayBuffer 数据。
+ * 
+ * 参数 data - base64 数据
+ * 返回值 ArrayBuffer - 原始数据
+ */
+function decode_String_toUint8Array(data: string): ArrayBuffer
 ```
 
 ## 使用说明
@@ -73,23 +81,23 @@ function decode_string(data: string): string
 1. 通过中心仓下载安装
 
     ```text
-    ohpm install @cangjie-tpc/base64cj
+    ohpm install @cangjie-tpc/base64
     ```
 
 2. 通过 module 引入
-    1. 克隆下载项目。
-    2. 将 library 模块拷贝到应用项目下。
-    3. 修改自身应用 entry 下的 oh-package.json5 文件，在 dependencies 字段添加：
+   1. 克隆下载项目。
+   2. 将 library 模块拷贝到应用项目下。
+   3. 修改自身应用 entry 下的 oh-package.json5 文件，在 dependencies 字段添加：
       ```json
       {
          "dependencies": {
-            "@cangjie-tpc/base64cj": "file:../library"
+            "@cangjie-tpc/base64": "file:../library"
          }
       }
       ```
-    4. 在项目中使用以下方式引入：
+   4. 在项目中使用以下方式引入：
       ```cangjie
-      import { encode_String, decode_string } from "@cangjie-tpc/base64cj"
+      import { encode_String, decode_string, encode_Uint8Array, decode_Uint8Array, decode_String_toUint8Array } from "@cangjie-tpc/base64cj"
       ```
 ## 功能示例
 
@@ -134,7 +142,7 @@ struct CangjieBase64Example {
 encode_Uint8Array 和 decode_Uint8Array 使用如下：
 
 ```ets
-import { encode_Uint8Array, decode_Uint8Array } from "@cangjie-tpc/base64cj"
+import { encode_Uint8Array, decode_String_toUint8Array } from "@cangjie-tpc/base64cj"
 @Entry
 @Component
 struct CangjieBase64Example {
@@ -153,7 +161,7 @@ struct CangjieBase64Example {
         Button("decode")
           .width(200)
           .onClick((event: ClickEvent) => {
-             const decodeResult = decode_Uint8Array(this.encodeResult)
+             const decodeResult = decode_String_toUint8Array(this.encodeResult)
           }).margin(10)    
 
       }
