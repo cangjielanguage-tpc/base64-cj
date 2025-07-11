@@ -40,3 +40,13 @@ public func fromBase64StringUtf8Arkts(data: String): Array<Byte> {
     }
     return result
 }
+
+@Interop[ArkTS]
+public func fromBase64Uint8Array(data: Array<Byte>): Array<Byte> {
+    var opArr: Option<Array<Byte>> = fromBase64String(String.fromUtf8(data))
+    var result: Array<Byte> = match (opArr) {
+        case Some(s) => s
+        case None => Array<Byte>()
+    }
+    return result
+}

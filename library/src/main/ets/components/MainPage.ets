@@ -8,6 +8,8 @@ export declare interface CustomLib {
   toBase64StringUtf8Arkts(data: ArrayBuffer): string
 
   fromBase64StringUtf8Arkts(data: string): ArrayBuffer
+
+  fromBase64Uint8Array(data: ArrayBuffer): ArrayBuffer
 }
 
 const cjlib = requireCJLib("libohos_app_cangjie_msg.so") as CustomLib
@@ -24,6 +26,10 @@ export function decode_string(data: string): string {
   return cjlib.fromBase64StringArkts(data)
 }
 
-export function decode_Uint8Array(data: string): ArrayBuffer {
+export function decode_String_toUint8Array(data: string): ArrayBuffer {
   return cjlib.fromBase64StringUtf8Arkts(data)
+}
+
+export function decode_Uint8Array(data: ArrayBuffer): ArrayBuffer {
+  return cjlib.fromBase64Uint8Array(data)
 }
