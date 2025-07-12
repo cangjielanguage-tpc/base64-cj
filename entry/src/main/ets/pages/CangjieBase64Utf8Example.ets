@@ -7,12 +7,12 @@ import { encode_Uint8Array, decode_Uint8Array, decode_String_toUint8Array } from
 @Entry
 @Component
 struct CangjieBase64Utf8Example {
-  private data: ArrayBuffer = Unit8ArrayUtils.StringToArrayBuffer("hello cangjie")
+  private data: Uint8Array = Unit8ArrayUtils.stringToUint8Array("hello cangjie")
   @State encodeResult: string = ""
-  @State decodeResult: ArrayBuffer = new ArrayBuffer(this.data.byteLength)
+  @State decodeResult: Uint8Array = new Uint8Array(this.data.byteLength)
 
   // 与base64 比较
-  private testEncodeString(count: number, str: ArrayBuffer): void {
+  private testEncodeString(count: number, str: Uint8Array): void {
     const start = systemDateTime.getTime(true)
     for (let i = 0; i < count; i++) {
       this.encodeResult = encode_Uint8Array(str)
@@ -29,7 +29,7 @@ struct CangjieBase64Utf8Example {
     hilog.error(0x0000, 'CangjieBase64Utf8', '%{public}s', `CangjieBase64Utf8Decode______${count}: ${(end - start) / count}ns/op`);
   }
 
-  private testDecodeUint8Array(count: number, str: ArrayBuffer): void {
+  private testDecodeUint8Array(count: number, str: Uint8Array): void {
     const start = systemDateTime.getTime(true)
     for (let i = 0; i < count; i++) {
       this.decodeResult = (decode_Uint8Array(str))
@@ -67,22 +67,22 @@ struct CangjieBase64Utf8Example {
         Button("decode_10")
           .width(200)
           .onClick((event: ClickEvent) => {
-            this.testDecodeUint8Array(10, this.data)
+            this.testDecodeUint8Array(10, Unit8ArrayUtils.stringToUint8Array(this.encodeResult))
           }).margin(10)
         Button("decode_1000")
           .width(200)
           .onClick((event: ClickEvent) => {
-            this.testDecodeUint8Array(100, this.data)
+            this.testDecodeUint8Array(100, Unit8ArrayUtils.stringToUint8Array(this.encodeResult))
           }).margin(10)
         Button("decode_1000")
           .width(200)
           .onClick((event: ClickEvent) => {
-            this.testDecodeUint8Array(1000, this.data)
+            this.testDecodeUint8Array(1000, Unit8ArrayUtils.stringToUint8Array(this.encodeResult))
           }).margin(10)
         Button("decode_10000")
           .width(200)
           .onClick((event: ClickEvent) => {
-            this.testDecodeUint8Array(10000, this.data)
+            this.testDecodeUint8Array(10000, Unit8ArrayUtils.stringToUint8Array(this.encodeResult))
           }).margin(10)
 
         Button("结果")

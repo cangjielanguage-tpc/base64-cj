@@ -7,7 +7,7 @@ import { CustomLib } from "libark_interop_api.so";
 
 const cjlib = requireCJLib("libcangjie_base64.so") as CustomLib
 
-export function encode_Uint8Array(data: ArrayBuffer): string {
+export function encode_Uint8Array(data: Uint8Array): string {
   return cjlib.toBase64StringUtf8Arkts(data)
 }
 
@@ -19,10 +19,10 @@ export function decode_string(data: string): string {
   return cjlib.fromBase64StringArkts(data)
 }
 
-export function decode_String_toUint8Array(data: string): ArrayBuffer {
-  return cjlib.fromBase64StringUtf8Arkts(data)
+export function decode_String_toUint8Array(data: string): Uint8Array {
+  return new Uint8Array(cjlib.fromBase64StringUtf8Arkts(data))
 }
 
-export function decode_Uint8Array(data: ArrayBuffer): ArrayBuffer {
-  return cjlib.fromBase64Uint8Array(data)
+export function decode_Uint8Array(data: Uint8Array): Uint8Array {
+  return  new Uint8Array(cjlib.fromBase64Uint8Array(data))
 }
