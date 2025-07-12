@@ -1,18 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2022-2024. All rights resvered.
+ */
 import { requireCJLib } from "libark_interop_loader.so";
+import { CustomLib } from "libark_interop_api.so";
 
-export declare interface CustomLib {
-  toBase64StringArkts(data: string): string
 
-  fromBase64StringArkts(data: string): string
-
-  toBase64StringUtf8Arkts(data: ArrayBuffer): string
-
-  fromBase64StringUtf8Arkts(data: string): ArrayBuffer
-
-  fromBase64Uint8Array(data: ArrayBuffer): ArrayBuffer
-}
-
-const cjlib = requireCJLib("libohos_app_cangjie_msg.so") as CustomLib
+const cjlib = requireCJLib("libcangjie_base64.so") as CustomLib
 
 export function encode_Uint8Array(data: ArrayBuffer): string {
   return cjlib.toBase64StringUtf8Arkts(data)

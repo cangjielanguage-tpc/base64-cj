@@ -1,5 +1,6 @@
-import util from '@ohos.util';
-import { Unit8ArrayUtils } from './common/Unit8ArrayUtils';
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2022-2024. All rights resvered.
+ */
 import { systemDateTime } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { fromByteArray, toByteArray } from 'base64';

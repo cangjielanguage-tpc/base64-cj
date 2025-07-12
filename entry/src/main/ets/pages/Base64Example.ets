@@ -1,4 +1,6 @@
-import { Unit8ArrayUtils } from './common/Unit8ArrayUtils'
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2022-2024. All rights resvered.
+ */
 import { systemDateTime } from '@kit.BasicServicesKit'
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { atob, btoa } from './common/base64';
@@ -6,7 +8,6 @@ import { atob, btoa } from './common/base64';
 @Entry
 @Component
 struct Base64Example {
-  // private data: string = Unit8ArrayUtils.generateRandomString(5)
   private data: string = "hello cangjie"
   @State encodeResult: string = ''
   @State decodeResult: string = ''

@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2022-2024. All rights resvered.
+ */
 import router from '@ohos.router'
 
 @Entry

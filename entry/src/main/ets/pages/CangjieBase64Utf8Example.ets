@@ -2,7 +2,7 @@
 import { hilog } from "@kit.PerformanceAnalysisKit";
 import { Unit8ArrayUtils } from "./common/Unit8ArrayUtils";
 import { systemDateTime } from "@kit.BasicServicesKit";
-import { encode_Uint8Array, decode_Uint8Array } from "@cangjie-tpc/base64cj"
+import { encode_Uint8Array, decode_Uint8Array, decode_String_toUint8Array } from "@cangjie-tpc/base64"
 
 @Entry
 @Component
@@ -21,6 +21,15 @@ struct CangjieBase64Utf8Example {
     hilog.error(0x0000, 'CangjieBase64Utf8', '%{public}s', `CangjieBase64Utf8Encode______${count}: ${(end - start) / count}ns/op`);
   }
   private testDecodeString(count: number, str: string): void {
+    const start = systemDateTime.getTime(true)
+    for (let i = 0; i < count; i++) {
+      this.decodeResult = (decode_String_toUint8Array(str))
+    }
+    const end = systemDateTime.getTime(true)
+    hilog.error(0x0000, 'CangjieBase64Utf8', '%{public}s', `CangjieBase64Utf8Decode______${count}: ${(end - start) / count}ns/op`);
+  }
+
+  private testDecodeUint8Array(count: number, str: ArrayBuffer): void {
     const start = systemDateTime.getTime(true)
     for (let i = 0; i < count; i++) {
       this.decodeResult = (decode_Uint8Array(str))
@@ -58,22 +67,22 @@ struct CangjieBase64Utf8Example {
         Button("decode_10")
           .width(200)
           .onClick((event: ClickEvent) => {
-            this.testDecodeString(10, this.encodeResult)
+            this.testDecodeUint8Array(10, this.data)
           }).margin(10)
         Button("decode_1000")
           .width(200)
           .onClick((event: ClickEvent) => {
-            this.testDecodeString(100, this.encodeResult)
+            this.testDecodeUint8Array(100, this.data)
           }).margin(10)
         Button("decode_1000")
           .width(200)
           .onClick((event: ClickEvent) => {
-            this.testDecodeString(1000, this.encodeResult)
+            this.testDecodeUint8Array(1000, this.data)
           }).margin(10)
         Button("decode_10000")
           .width(200)
           .onClick((event: ClickEvent) => {
-            this.testDecodeString(10000, this.encodeResult)
+            this.testDecodeUint8Array(10000, this.data)
           }).margin(10)
 
         Button("结果")

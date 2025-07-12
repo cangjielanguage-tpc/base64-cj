@@ -1,5 +1,7 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2022-2024. All rights resvered.
+ */
 package cangjie_base64
-
 
 import ohos.ark_interop.*
 import ohos.ark_interop_macro.*
@@ -9,7 +11,6 @@ import ohos.component.*
 import ohos.state_manage.*
 import ohos.state_macro_manage.*
 import encoding.base64.*
-import ohos.hilog.Hilog
 
 @Interop[ArkTS]
 public func toBase64StringArkts(data: String): String {

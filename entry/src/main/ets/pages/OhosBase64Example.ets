@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2022-2024. All rights resvered.
+ */
 import util from '@ohos.util';
 import { Unit8ArrayUtils } from './common/Unit8ArrayUtils';
 import { systemDateTime } from '@kit.BasicServicesKit';
@@ -9,7 +12,6 @@ import {Base64} from '@ohos/base64'
 struct OhosBase64Example {
   private data: Uint8Array = new Uint8Array([104, 101, 108, 108, 111, 32, 99, 97, 110, 103, 106, 105, 101])
   @State encodeResult: string = ""
-  // @State decodeResult: Uint8Array = new Uint8Array()
   @State decodeResult: string = ""
 
   private testEncodeString(count: number, str: Uint8Array): void {
