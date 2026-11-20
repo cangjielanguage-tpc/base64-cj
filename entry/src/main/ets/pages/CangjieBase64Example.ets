@@ -3,7 +3,7 @@ import { hilog } from "@kit.PerformanceAnalysisKit";
 import { Unit8ArrayUtils } from "./common/Unit8ArrayUtils";
 import { systemDateTime } from "@kit.BasicServicesKit";
 
-import { encode_String, decode_string } from "@cangjie-tpc/base64"
+import { encode_String, decode_string } from "@cangjie-tpc/base64_hybrid"
 @Entry
 @Component
 struct CangjieBase64Example {

@@ -1,6 +1,4 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2022-2024. All rights resvered.
- */
+
 import util from '@ohos.util';
 import { Unit8ArrayUtils } from './common/Unit8ArrayUtils';
 import { systemDateTime } from '@kit.BasicServicesKit';

@@ -4,3 +4,7 @@
 /build
 /.cxx
 /.test
+**/IDL_Dependencies_List~
+**/IDL_Custom_Type_Whitelist~
+**/build-script-cache
+*.lock

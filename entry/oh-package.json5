@@ -6,7 +6,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@cangjie-tpc/base64": "file:../library"
+    "@cangjie-tpc/base64_hybrid": "file:../library"
   }
 }
 

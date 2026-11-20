@@ -1,14 +1,24 @@
 {
-  "name": "@cangjie-tpc/base64",
+  "name": "@cangjie-tpc/base64_hybrid",
   "version": "1.0.0",
   "description": "ArkTS调用Cangjie版base64编解码算法实现。",
   "main": "Index.ets",
-  "author": "cangjie-tpc",
+  "author": {
+    "name": "cangjie-tpc",
+    "url": "https://gitcode.com/Cangjie-TPC"
+  },
   "license": "Apache-2.0",
   "repository": "https://gitcode.com/Cangjie-TPC/base64-cj.git",
+  "keywords": [
+    "base64",
+    "仓颉",
+    "OpenHarmony",
+    "HarmonyOS"
+  ],
   "dependencies": {
+    "@cangjie/stdx-compat" : "1.1.3",
+    "@cangjie/cjhybridview": "1.0.5",
     "libark_interop_loader.so": "file:./src/main/cangjie/loader",
-    "cjhyapiregister": "file:./har/CJHyAPIRegister-v1.0.1.har",
     "libark_interop_api.so": "file:./src/main/cangjie/ark_interop_api"
   }
 }

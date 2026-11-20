@@ -2,14 +2,14 @@
 import { hilog } from "@kit.PerformanceAnalysisKit";
 import { Unit8ArrayUtils } from "./common/Unit8ArrayUtils";
 import { systemDateTime } from "@kit.BasicServicesKit";
-import { encode_Uint8Array, decode_Uint8Array, decode_String_toUint8Array } from "@cangjie-tpc/base64"
+import { encode_Uint8Array, decode_Uint8Array, decode_String_toUint8Array } from "@cangjie-tpc/base64_hybrid"
 
 @Entry
 @Component
 struct CangjieBase64Utf8Example {
   private data: Uint8Array = Unit8ArrayUtils.stringToUint8Array("hello cangjie")
   @State encodeResult: string = ""
-  @State decodeResult: Uint8Array = new Uint8Array(this.data.byteLength)
+  private decodeResult: Uint8Array = new Uint8Array(this.data.byteLength)
 
   // 与base64 比较
   private testEncodeString(count: number, str: Uint8Array): void {
@@ -88,9 +88,9 @@ struct CangjieBase64Utf8Example {
         Button("结果")
           .width(200)
           .onClick((event: ClickEvent) => {
-            hilog.error(0x0000, 'CangjieBase64Utf8', '%{public}s', `原数据: ${JSON.stringify(Array.from(new Uint8Array(this.data)))}`);
+            hilog.error(0x0000, 'CangjieBase64Utf8', '%{public}s', `原数据: ${JSON.stringify(Array.from(this.data))}`);
             hilog.error(0x0000, 'CangjieBase64Utf8', '%{public}s', `encode: ${this.encodeResult}`);
-            hilog.error(0x0000, 'CangjieBase64Utf8', '%{public}s', `decode: ${JSON.stringify(Array.from(new Uint8Array(this.decodeResult)))}`);
+            hilog.error(0x0000, 'CangjieBase64Utf8', '%{public}s', `decode: ${JSON.stringify(Array.from(this.decodeResult))}`);
           }).margin(10)
 
       }

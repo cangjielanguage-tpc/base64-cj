@@ -11,7 +11,7 @@ struct Base64JsExample {
   // private data: Uint8Array = Unit8ArrayUtils.generateRandomArray(1024*1024)
   private data: Uint8Array = new Uint8Array([104, 101, 108, 108, 111, 32, 99, 97, 110, 103, 106, 105, 101])
   @State encodeResult: string = ""
-  @State decodeResult: Uint8Array = new Uint8Array()
+  private decodeResult: Uint8Array = new Uint8Array()
 
   private testEncodeString(count: number, str: Uint8Array): void {
     const start = systemDateTime.getTime(true)
